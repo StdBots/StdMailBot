@@ -1,0 +1,59 @@
+{
+  "name": "StdMailBot",
+  "description": "High-performance Telegram Temp Mail Bot built in Go with MongoDB persistence, dual-engine mail generation (TempMail.io + 1secmail), auto OTP & magic link extraction, and auto inbox watch.",
+  "repository": "https://github.com/StdBots/StdMailBot",
+  "logo": "https://graph.org/file/00ea4effe5d2dfbb8d5be.jpg",
+  "keywords": [
+    "telegram",
+    "bot",
+    "golang",
+    "tempmail",
+    "disposable-email",
+    "otp",
+    "mongodb",
+    "stdbots",
+    "std-deepanshu"
+  ],
+  "stack": "container",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Telegram Bot Token from @BotFather",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Telegram Numeric User ID of the Bot Owner",
+      "value": "7394590844",
+      "required": true
+    },
+    "MONGO_URI": {
+      "description": "MongoDB Connection String (MongoDB Atlas or standalone)",
+      "required": true
+    },
+    "DB_NAME": {
+      "description": "Database Name",
+      "value": "stdmailbot",
+      "required": false
+    },
+    "FORCE_SUB_CHANNEL": {
+      "description": "Channel username to force users to join before generating emails (without @)",
+      "value": "StdBots",
+      "required": false
+    },
+    "LOG_CHANNEL_ID": {
+      "description": "Channel ID for audit logs (optional, e.g. -1001234567890)",
+      "value": "0",
+      "required": false
+    },
+    "ENV": {
+      "description": "Runtime Environment",
+      "value": "production",
+      "required": false
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
