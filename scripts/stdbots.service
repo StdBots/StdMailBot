@@ -1,0 +1,16 @@
+[Unit]
+Description=StdMailBot - Telegram Temp Mail Bot Daemon
+After=network.target mongodb.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/stdbots/StdMailBot
+ExecStart=/opt/stdbots/StdMailBot/bin/bot
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/stdbots/StdMailBot/.env
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target
